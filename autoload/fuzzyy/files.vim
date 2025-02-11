@@ -56,6 +56,10 @@ def AsyncCb(result: list<any>)
     var strs = []
     var hl_list = []
     var idx = 1
+
+    #Shortest first
+    sort(result, (a, b) => len(a[0]) - len(b[0]))
+
     for item in result
         add(strs, item[0])
         hl_list += reduce(item[1], (acc, val) => {
